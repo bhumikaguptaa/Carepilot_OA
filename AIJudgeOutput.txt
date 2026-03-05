@@ -1,0 +1,18 @@
+Analysis for row 1
+Question: Who is at risk for Lymphocytic Choriomeningitis (LCM)? ?
+AI Response: Individuals are at risk for Lymphocytic Choriomeningitis (LCM) primarily through contact with infected rodents, most commonly common house mice (Mus musculus), or their excretions (urine, droppings, saliva). This includes people living in rodent-infested homes, laboratory personnel working with infected rodents, and owners of pet rodents that may carry the virus. Pregnant individuals are at risk for transmitting the virus to the fetus, which can cause severe congenital LCMV. A rare risk exists for organ transplant recipients if the donor was infected.
+helpfulness : 5
+Analysis Complete for current row
+==============================
+Analysis for row 2
+Question: how can these diseases be diagnosed for Marine Toxins ?
+AI Response: Diagnosing diseases caused by marine toxins primarily involves a detailed clinical history of recent seafood consumption or water exposure, coupled with characteristic signs and symptoms specific to different toxin syndromes (e.g., ciguatera, paralytic shellfish poisoning). Laboratory confirmation often entails testing the suspected food source for toxins (if available) or, less commonly, detecting toxins/metabolites in patient samples (e.g., urine, serum), though these assays are specialized and not routinely accessible. Diagnosis is frequently clinical based on epidemiological links and presentation, with supportive care guided by patient symptoms.
+helpfulness : 5
+Analysis Complete for current row
+==============================
+Analysis for row 3
+Question: what is botulism?
+AI Response: Botulism is a rare but severe paralytic illness caused by a neurotoxin produced by the bacterium Clostridium botulinum. This toxin attacks the body's nerves, leading to muscle weakness and paralysis, which can be life-threatening if it affects respiratory muscles.
+helpfulness : 5
+Analysis Complete for current row
+==============================
