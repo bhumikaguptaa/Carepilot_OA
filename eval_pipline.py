@@ -1,10 +1,5 @@
 # ###
 
-# - Write a Python script or module that takes in a CSV of question/response pairs and outputs a set of evaluation metrics
-# - Include at least 2–3 automated metrics (e.g., text similarity scores, response length analysis, keyword checks for safety-sensitive terms)
-# - Generate a summary report (can be a printed output, a markdown file, or even a simple HTML page)
-# - Include basic error handling and a README explaining how to run it
-
 #1. assumption: response is Human response 
 """
 Metrics to check:
@@ -86,20 +81,17 @@ class EvaluationPipeline:
 """
 
     def response_length_analysis(self):
-        
-        # 1. Clean the data: Ensure everything is a string and handle missing values
+
         responses = self.dataset['ai_response'].fillna("").astype(str)
         
-        # 2. Calculate lengths using optimized Pandas string methods
-
+    
         self.dataset['char_count'] = responses.str.len()
         self.dataset['word_count'] = responses.str.split().str.len()
         
         self.dataset['estimated_tokens'] = self.dataset['char_count'] // 4
 
-        # 3. Generate descriptive statistics
         print("=== AI Response Length Analysis ===")
-        
+
         print("\n-- Word Count Stats --")
 
         print(self.dataset['word_count'].describe().round(2))
@@ -183,21 +175,16 @@ Do not include any conversational filler or markdown outside the JSON block.
             print("end of cosine matrix")
             print("="*30)
         
-        
-
-
-
-
-
+    
 
 def main():
     mypipe = EvaluationPipeline("part3Test.csv")
-    # output = mypipe.AI_as_a_judge("helpfulness")
+    output = mypipe.AI_as_a_judge("helpfulness")
 
-    # myfile = open("AIJudgeOutput.txt",'w')
-    # myfile.write(output)
-    # myfile.close()
-    # mypipe.semantic_entropy()
+    myfile = open("AIJudgeOutput.txt",'w')
+    myfile.write(output)
+    myfile.close()
+    mypipe.semantic_entropy()
     response_length_data = mypipe.response_length_analysis()
 
 main()
