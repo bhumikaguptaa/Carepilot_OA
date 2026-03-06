@@ -81,7 +81,7 @@ class EvaluationPipeline:
 """
 
     def response_length_analysis(self):
-
+        runningOut="=======RESPONSE LENGTH ANALYSIS=======\n"
         responses = self.dataset['ai_response'].fillna("").astype(str)
         
     
@@ -90,19 +90,16 @@ class EvaluationPipeline:
         
         self.dataset['estimated_tokens'] = self.dataset['char_count'] // 4
 
-        print("=== AI Response Length Analysis ===")
+        runningOut+="=== AI Response Length Analysis ===\n"
 
-        print("\n-- Word Count Stats --")
+        runningOut+="\n-- Word Count Stats --\n"
 
-        print(self.dataset['word_count'].describe().round(2))
+        runningOut+=str(self.dataset['word_count'].describe().round(2))+"\n"
         
-        print("\n-- Estimated Token Stats --")
-        print(self.dataset['estimated_tokens'].describe().round(2))
+        runningOut+="\n-- Estimated Token Stats --\n"
+        runningOut+=str(self.dataset['estimated_tokens'].describe().round(2))
         
-        return {
-            "word_count_stats": self.dataset['word_count'].describe().to_dict(),
-            "char_count_stats": self.dataset['char_count'].describe().to_dict()
-        }
+        return runningOut
     
     def getJudgePrompt(self, question, ai_response, criteria):
         #"helpfulness", "safety"
@@ -134,7 +131,7 @@ Do not include any conversational filler or markdown outside the JSON block.
         
     
     def AI_as_a_judge(self, criteria:str):
-        runningOutput=""
+        runningOutput="=========AI JUDGE REPORT=========\n"
 
         for row in self.dataset.itertuples(index=True):
 
@@ -156,8 +153,8 @@ Do not include any conversational filler or markdown outside the JSON block.
         return runningOutput
 
     def semantic_entropy(self):
-        print("="*30)
-        print("Beginning semantic analysis")
+        runningOutput=""
+        runningOutput+="======SEMANTIC ENTROPY ANALYSIS======\n"
         megaResponses=[]
         for i in range(len(self.dataset)):
             responses=[self.dataset['human_response'].iloc[i], self.dataset['question'].iloc[i]]
@@ -168,24 +165,36 @@ Do not include any conversational filler or markdown outside the JSON block.
             megaResponses.append(responses)
 
         for i,response in enumerate(megaResponses):
-            print(f"Printing cosine sim matrix for row {i+1} ")
+            runningOutput+=f"Printing cosine sim matrix for row {i+1}\n"
             embeddings = self.model.encode(response)
             cosMatrix = util.cos_sim(embeddings, embeddings)
-            print(cosMatrix)
-            print("end of cosine matrix")
-            print("="*30)
+            runningOutput+=f"{cosMatrix}"+"\n"
+            runningOutput+="end of cosine matrix\n"
+            runningOutput+="="*30+"\n"
+        
+        return runningOutput
+
+
+
         
     
 
 def main():
     mypipe = EvaluationPipeline("part3Test.csv")
-    output = mypipe.AI_as_a_judge("helpfulness")
+    outputaijudge = mypipe.AI_as_a_judge("helpfulness")
 
-    myfile = open("AIJudgeOutput.txt",'w')
-    myfile.write(output)
-    myfile.close()
-    mypipe.semantic_entropy()
-    response_length_data = mypipe.response_length_analysis()
+    outputEntropy = mypipe.semantic_entropy()
+    outputResponse = mypipe.response_length_analysis()
+
+    summaryFile = open("summary.txt",'w')
+    heading="="*15 + "SUMMARY REPORT" + "="*15 + "\n"
+    summaryFile.write(heading)
+    summaryFile.write(outputaijudge)
+    summaryFile.write("==============================\n")
+    summaryFile.write(outputEntropy)
+    summaryFile.write("==============================\n")
+    summaryFile.write(outputResponse)
+    summaryFile.close()
 
 main()
 

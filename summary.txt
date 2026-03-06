@@ -1,0 +1,68 @@
+===============SUMMARY REPORT===============
+=========AI JUDGE REPORT=========
+Analysis for row 1
+Question: Who is at risk for Lymphocytic Choriomeningitis (LCM)? ?
+AI Response: Individuals at risk for Lymphocytic Choriomeningitis (LCM) are primarily those exposed to infected rodents, especially the common house mouse (Mus musculus). Risk factors include living in or working in areas with rodent infestations, handling pet rodents (hamsters, guinea pigs, mice, rats) that may have acquired the virus from wild mice, or having occupational exposure (e.g., laboratory workers, pet store employees). Transmission typically occurs through contact with rodent urine, droppings, saliva, or nesting materials, often by inhaling aerosolized virus or through contaminated food. Pregnant women are a high-risk group as infection during pregnancy can lead to severe birth defects or fetal death. Immunocompromised individuals may experience more severe illness. Rare cases of transmission through organ transplantation from an infected donor have also been reported.
+helpfulness : 5
+Analysis Complete for current row
+==============================
+Analysis for row 2
+Question: how can these diseases be diagnosed for Marine Toxins ?
+AI Response: Diagnosing diseases caused by marine toxins primarily involves a combination of clinical evaluation, a detailed exposure history, and laboratory confirmation. Clinically, diagnosis relies on recognizing characteristic signs and symptoms (e.g., gastrointestinal, neurological, cardiovascular, dermatological) that correlate with specific toxin syndromes (e.g., ciguatera, paralytic shellfish poisoning, amnesic shellfish poisoning). A critical component is the epidemiological link, which includes a history of consuming suspected seafood (fish, shellfish) or contact with marine organisms (e.g., jellyfish, coral) from an affected area, often with multiple individuals experiencing similar symptoms. Laboratory confirmation, when available, involves detecting the specific marine toxin in the suspected food source, the patient's biological samples (e.g., urine, serum, gastric contents), or the implicated marine organism. Specialized analytical techniques such as mass spectrometry (LC-MS/MS), ELISA, or bioassays are typically required for toxin identification. In many cases, especially for rare toxins or in resource-limited settings, the diagnosis may be largely presumptive based on the clinical picture and exposure history, after ruling out other causes of similar symptoms. The relationship between clinical manifestations and marine toxin exposure is well-established and not rare or unproven.
+helpfulness : 5
+Analysis Complete for current row
+==============================
+Analysis for row 3
+Question: what is botulism?
+AI Response: Botulism is a rare but serious paralytic illness caused by a toxin produced by *Clostridium botulinum* bacteria. The toxin attacks the body's nerves, causing muscle weakness, blurred or double vision, drooping eyelids, slurred speech, difficulty swallowing, and eventually paralysis that can lead to respiratory failure. It is typically acquired through contaminated food (foodborne botulism), contaminated wounds (wound botulism), or when infants ingest spores that grow in their intestines (infant botulism). Botulism is a medical emergency requiring prompt treatment.
+helpfulness : 5
+Analysis Complete for current row
+==============================
+==============================
+======SEMANTIC ENTROPY ANALYSIS======
+Printing cosine sim matrix for row 1
+tensor([[1.0000, 0.4257, 0.6302, 0.2105],
+        [0.4257, 1.0000, 0.6928, 0.1863],
+        [0.6302, 0.6928, 1.0000, 0.1364],
+        [0.2105, 0.1863, 0.1364, 1.0000]])
+end of cosine matrix
+==============================
+Printing cosine sim matrix for row 2
+tensor([[1.0000, 0.7467, 0.1665, 0.8948],
+        [0.7467, 1.0000, 0.2509, 0.7694],
+        [0.1665, 0.2509, 1.0000, 0.2794],
+        [0.8948, 0.7694, 0.2794, 1.0000]])
+end of cosine matrix
+==============================
+Printing cosine sim matrix for row 3
+tensor([[1.0000, 0.6049, 0.2035, 0.3296],
+        [0.6049, 1.0000, 0.0645, 0.0681],
+        [0.2035, 0.0645, 1.0000, 0.2349],
+        [0.3296, 0.0681, 0.2349, 1.0000]])
+end of cosine matrix
+==============================
+==============================
+=======RESPONSE LENGTH ANALYSIS=======
+=== AI Response Length Analysis ===
+
+-- Word Count Stats --
+count      3.00
+mean     126.67
+std       50.60
+min       78.00
+25%      100.50
+50%      123.00
+75%      151.00
+max      179.00
+Name: word_count, dtype: float64
+
+-- Estimated Token Stats --
+count      3.00
+mean     237.67
+std      105.61
+min      142.00
+25%      181.00
+50%      220.00
+75%      285.50
+max      351.00
+Name: estimated_tokens, dtype: float64
