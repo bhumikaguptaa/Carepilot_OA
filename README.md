@@ -42,11 +42,13 @@ Columns generated so far: `question, reference_answer, ai_response, confidence_s
 
 ### Step 3 
 
-Due to an unusual amount of hallucinations from gemini, I used antigravity to generate question type to generate `datasetwithAIResponses_categorized.csv`
+I used Antigravity to come up with a set of question types, due to an unusual amount of hallucinations from Gemini. 
+
+I used `categorize.py` to assign question types to each row and generate `datasetwithAIResponses_categorized.csv`. 
 
 Columns generated so far: `question, reference_answer, ai_response, confidence_score, question_type`
 
-### step 4
+### Step 4
 I created the question_id column to have a unique identifier for each question. 
 
 Next, I generated the `human_rating` column by comparing the cosine similiarity between the semantic sentence embeddings of `ai_response` and `reference_answer`.
@@ -65,7 +67,7 @@ Final step was to manually changed a few features to create edge cases in the da
 
 # PART 2
 
-Analyzed the sample_eval_data.csv and answered the following questions in `Data_Analysis.ipynb`. 
+Analyzed the sample_eval_data.csv and answered the following questions in `Data_Analysis_PART2.ipynb`. 
 
 Used descritive analytics to answer: 
 
@@ -97,7 +99,7 @@ Used predictive analytics to answer:
 
 **Assumption:** The prompt mentioned that the evaluation pipeline will receive a csv of question/answer pairs. Since it was clear whether the answer referred to human answers or AI answers, **my assumption for this part was that the csv supplied will contain question/ai answer pairs.**
 
-Created a lightweight, reusable evaluation pipeline in `eval_pipline.py`
+Created a lightweight, reusable evaluation pipeline in `eval_pipline_PART3.py`
 
 Wrote a Python script that takes in a CSV of question ad human response pairs and generates and AI response and confidence scores. 
 

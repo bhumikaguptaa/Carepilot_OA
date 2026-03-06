@@ -1,26 +1,11 @@
-# ###
-
-#1. assumption: response is Human response 
-"""
-Metrics to check:
-
-- AI as a judge 
-- response length analysis, 
-- keyword checks for safety-sensitive terms
-- Semantic Entropy (Self-Consistency): If you ask the same question 3 times, does the meaning change? 
-    High entropy in medical answers is a major red flag for "hallucination."- text
-
-- Look for correlation between cosine similiarity and confidence score
-"""
+#ASSUMPTION: response in question/response pair is human_response and it corresponds to reference_answer from earlier parts. 
 from sentence_transformers import SentenceTransformer, util
 from google import genai
 from dotenv import load_dotenv
 import os
 import pandas as pd
-import json
+
 load_dotenv()
-
-
 
 class EvaluationPipeline:
 
@@ -29,8 +14,6 @@ class EvaluationPipeline:
         self.client = genai.Client(api_key=apikey)
         self.model = SentenceTransformer('all-MiniLM-L6-v2')
         self.safety_sensitive_keywords=[]
-
-        
 
         self.dataset = pd.read_csv(filePath)
         aiResponses,confidences = [],[]
@@ -47,9 +30,6 @@ class EvaluationPipeline:
 
         print(self.dataset.head())
 
-        #Run each question through AI to get response
-        #Look for a list of sensitive terms
-        #Semantic entropy 5 times asking
     
     def generateAIResponses(self,question:str):
         prompt = self.getPrompt(question)

@@ -17,7 +17,7 @@ def categorize_question(row):
         "General Health & Oncology": ["cancer", "tumor", "carcinoma", "oncology", "leukemia", "lymphoma", "surgery", "drug", "medication", "pain", "infection", "fever", "vaccine", "pediatric", "injury", "treatment"]
     }
     
-    # Simple check for matches. Order defines priority if there are multiple matches.
+
     # We will score each category based on number of matches in the text.
     scores = {cat: 0 for cat in categories}
     

@@ -1,6 +1,3 @@
-##manually added question_type due to llm latency
-##human rating
-
 from sentence_transformers import SentenceTransformer, util
 import pandas as pd
 
@@ -42,7 +39,7 @@ def human_flagging(row):
 
 
 #Counter({4: 56, 3: 41, 2: 22, 1: 17, 5: 4})
-# 5. Apply to your dataset
+
 
 dataset = pd.read_csv('datasetwithAIResponses_categorized.csv') 
 
